@@ -17,7 +17,9 @@ window.fbAsyncInit = function() {
     var accessToken = response.authResponse.accessToken;
     console.log('hellow'+ uid);
   } else if (response.status === 'not_authorized') {
-    console.log('Plz authorize this app');
+             FB.login(function(response) {
+              console.log(response.name);
+         }, {scope: 'email,user_likes'});
   } else {
     window.location = 'https://www.facebook.com/index.php';
   }
