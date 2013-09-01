@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
   } else if (response.status === 'not_authorized') {
     console.log('Plz authorize this app');
   } else {
-    // the user isn't logged in to Facebook.
+    window.location = 'https://www.facebook.com/index.php';
   }
  });
   };
