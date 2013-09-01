@@ -15,11 +15,10 @@ window.fbAsyncInit = function() {
     // and signed request each expire
     var uid = response.authResponse.userID;
     var accessToken = response.authResponse.accessToken;
-    console.log('hellow'+ uid);
+    console.log('hellow'+ response.name);
   } else if (response.status === 'not_authorized') {
-             FB.login(function(response) {
-              console.log(response.name);
-         }, {scope: 'email,user_likes'});
+      $('#signedin').show();
+      $('#notsignedin').hide();
   } else {
     window.location = 'https://www.facebook.com/index.php';
   }
@@ -36,4 +35,12 @@ window.fbAsyncInit = function() {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
   
+  
+  function doLogin(){
+  FB.login(function(response) {
+      console.log(response.name);
+      $('#signedin').show();
+      $('#notsignedin').hide();
+         }, {scope: 'email,user_likes'});  
+  }
   
