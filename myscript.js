@@ -17,8 +17,8 @@ window.fbAsyncInit = function() {
     var accessToken = response.authResponse.accessToken;
     console.log('hellow'+ response.name);
   } else if (response.status === 'not_authorized') {
-      $('#signedin').show();
-      $('#notsignedin').hide();
+      $('#signedin').hide();
+      $('#notsignedin').show();
   } else {
     window.location = 'https://www.facebook.com/index.php';
   }
